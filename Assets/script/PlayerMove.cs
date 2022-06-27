@@ -17,15 +17,56 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Move();
+        //ClickCount();
+    }
 
-        Move();
+    void ClickCount()
+    {
+
+        if(Input.touchCount % 2 == 1)
+        {
+            moveRight();
+            Debug.Log(Input.touchCount);
+
+        }
+        else if((Input.touchCount == 0) && (Input.touchCount % 2 == 0))
+        {
+            Debug.Log(Input.touchCount);
+            moveLeft();
+        }
+    }
+
+    void moveRight()
+    {
+        transform.Translate(speed * Time.deltaTime, 0, 0);
+        anim.SetFloat("right", 1.0f);
+        transform.localScale = new Vector2(1, 1);
+        Debug.Log("right");
+    }
+
+    void moveLeft()
+    {
+        transform.Translate(-speed * Time.deltaTime, 0, 0);
+        anim.SetFloat("left", 1.0f);
+        transform.localScale = new Vector2(-1, 1);
+        Debug.Log("left");
     }
 
     void Move()
     {
-        Vector3 moveV = Vector3.zero;
+        ClickCount();
+        if (GametouchCount % 2 == 1)
+        {
+            //Debug.Log("right");
+        }
+        else if ((GametouchCount == 0) && (GametouchCount % 2 == 0))
+        {
+            // Debug.Log("left");
+        }
+        //Vector3 moveV = Vector3.zero;
 
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        /*if (Input.GetAxisRaw("Horizontal") < 0)
         {
             moveV = Vector3.left;
             anim.SetFloat("left", 1.0f);
@@ -39,9 +80,9 @@ public class PlayerMove : MonoBehaviour
         {
             anim.SetFloat("left", -1f);
             anim.SetFloat("right", -1f);
-        }
+        }*/
 
-        transform.position += moveV * speed * Time.deltaTime;
+        //transform.position += moveV * speed * Time.deltaTime;
     }
 
 }
