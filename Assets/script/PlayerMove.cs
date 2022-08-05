@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         //Move();
-        //ClickCount();
+        ClickCount();
     }
 
     void ClickCount()
@@ -55,15 +55,15 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        ClickCount();
-        if (GametouchCount % 2 == 1)
-        {
+       // ClickCount();
+       // if (GametouchCount % 2 == 1)
+        //{
             //Debug.Log("right");
-        }
-        else if ((GametouchCount == 0) && (GametouchCount % 2 == 0))
-        {
+       // }
+       // else if ((GametouchCount == 0) && (GametouchCount % 2 == 0))
+       // {
             // Debug.Log("left");
-        }
+       // }
         //Vector3 moveV = Vector3.zero;
 
         /*if (Input.GetAxisRaw("Horizontal") < 0)
