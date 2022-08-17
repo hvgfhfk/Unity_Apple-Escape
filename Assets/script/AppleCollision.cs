@@ -12,7 +12,7 @@ public class AppleCollision : MonoBehaviour
         }
         else if(other.gameObject.tag == "Shield")
         { 
-            GameManager.instance.ShieldCount--;
+            GameManager.instance.shieldCount--;
             Destroy(this.gameObject); // 쉴드에 맞았을 경우 삭제
         }
     }

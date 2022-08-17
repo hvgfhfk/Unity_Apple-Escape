@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // 싱글턴
-    public GameObject GameOverText;
-    public Text AppleCountText; // 피한 사과의 개수 Text
-    public int AppleCount = 0;
+    public GameObject gameOverText;
+    public Text appleCountText; // 피한 사과의 개수 Text
+    public int appleCount = 0;
 
-    public int ShieldCount = 0;
+    public int shieldCount = 0;
 
-    public int PlayerLifeCount = 1;
-    public bool GameOver = false;
+    public int playerLifeCount = 1;
+    public bool gameOver = false;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         if (Time.timeScale == 0 && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(0);
-            GameOver = false;
+            gameOver = false;
             Time.timeScale = 1; // 씬을 재실행 할 경우 게임을 재 실행
         }
     }
@@ -35,14 +35,14 @@ public class GameManager : MonoBehaviour
     public void DeadOn()
     {
         Time.timeScale = 0; // 게임 일시 정지
-        GameOver = true;
-        GameOverText.SetActive(true);
+        gameOver = true;
+        gameOverText.SetActive(true);
     }
 
     public void CountText() // 사과 피한 갯수
     {
-        AppleCount += 1; 
-        GameManager.instance.AppleCountText.text = "Apple : " + AppleCount;
+        appleCount += 1; 
+        GameManager.instance.appleCountText.text = "Apple : " + appleCount;
     }
 
 }
