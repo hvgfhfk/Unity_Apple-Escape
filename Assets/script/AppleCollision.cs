@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AppleCollision : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "DeadZone")
@@ -16,4 +17,6 @@ public class AppleCollision : MonoBehaviour
             Destroy(this.gameObject); // 쉴드에 맞았을 경우 삭제
         }
     }
+
+
 }
