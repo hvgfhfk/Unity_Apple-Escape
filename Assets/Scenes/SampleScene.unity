@@ -2273,7 +2273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879788207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6118245cdc9344d1bdc97bbdd7e96e4, type: 3}
   m_Name: 
@@ -2514,6 +2514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  left: 0
+  right: 0
+  idle: 0
 --- !u!95 &2045298894
 Animator:
   serializedVersion: 3

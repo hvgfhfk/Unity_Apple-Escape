@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 7.0f;
+    public float characterSpeed = 7.0f;
 
     Animator anim;
 
@@ -17,31 +17,39 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Move();
+        //Move();
+        ClickCount();
     }
 
-    void Move()
+    void ClickCount()
     {
-        Vector3 moveV = Vector3.zero;
 
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if(Input.touchCount % 2 == 1)
         {
-            moveV = Vector3.left;
-            anim.SetFloat("left", 1.0f);
+            MoveRight();
+            Debug.Log(Input.touchCount);
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
+        else if((Input.touchCount == 0) && (Input.touchCount % 2 == 0))
         {
-            moveV = Vector3.right;
-            anim.SetFloat("right", 1.0f);
+            Debug.Log(Input.touchCount);
+            MoveLeft();
         }
-        else
-        {
-            anim.SetFloat("left", -1f);
-            anim.SetFloat("right", -1f);
-        }
+    }
 
-        transform.position += moveV * speed * Time.deltaTime;
+    void MoveRight()
+    {
+        transform.Translate(characterSpeed * Time.deltaTime, 0, 0);
+        anim.SetFloat("right", 1.0f);
+        transform.localScale = new Vector2(1, 1);
+        Debug.Log("right");
+    }
+
+    void MoveLeft()
+    {
+        transform.Translate(-characterSpeed * Time.deltaTime, 0, 0);
+        anim.SetFloat("left", 1.0f);
+        transform.localScale = new Vector2(-1, 1);
+        Debug.Log("left");
     }
 
 }

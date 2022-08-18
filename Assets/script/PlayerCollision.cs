@@ -8,9 +8,9 @@ public class PlayerCollision : MonoBehaviour
     {
         if(other.gameObject.tag == "Apple")
         {
-            GameManager.instance.PlayerLifeCount--;
+            GameManager.instance.playerLifeCount--;
             //GameManager.instance.ShieldCount -= 1;
-            if (GameManager.instance.PlayerLifeCount < 1)
+            if (GameManager.instance.playerLifeCount < 1)
             {
                 playerDie();
             }
